@@ -7,8 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RemDcItemComponent implements OnInit {
   dcOpened = false; 
+  item = {};
+  
 
-  constructor() { }
+  constructor() { 
+    this.item = {code : `function sayHi(name) {
+      var phrase = "Привет, " + name ;
+      alert( phrase );
+    }
+    sayHi('Вася');`};
+  }
 
   ngOnInit() {
   }

@@ -7,3 +7,11 @@ a {
     background-clip: text;
     color: transparent;
 }
+
+.card {
+    color: hsl(60, 30%, 96%);
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    background: hsl(72, 7%, 13%);
+}
