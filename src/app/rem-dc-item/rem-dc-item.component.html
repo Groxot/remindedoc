@@ -1,0 +1,12 @@
+<div class="card">
+    <code *ngIf="dcOpened" class="animated fadeInUp"> function sayHi(name) &#123;<br>
+ 	&emsp; var phrase = "Привет, " + name;<br>
+ 	&emsp; alert( phrase );<br>
+&#125;<br>
+sayHi('Вася'); </code>
+    <div class="card-body">
+        <h4 class="card-title" (click)="collapseDc()">Замыкания</h4>
+        <p *ngIf="dcOpened" class="card-text animated fadeInDown">Замыкание – это функция вместе со всеми внешними переменными, которые ей доступны.</p>
+        <a *ngIf="dcOpened" href="https://learn.javascript.ru/closures" class="float-right" mdbRippleRadius>long read</a>
+    </div>
+</div>
