@@ -1,10 +1,21 @@
 <div class="card">
-    <pre *ngIf="dcOpened">
-    <code class="animated fadeInUp" [innerHTML]="item.code" highlight></code>
+    <pre *ngIf="dcOpened && !dcEditMode">
+      <code class="animated fadeInUp" [innerHTML]="cItem.code" highlight></code>
     </pre>
     <div class="card-body">
-        <h4 class="card-title" (click)="collapseDc()">Замыкания</h4>
-        <p *ngIf="dcOpened" class="card-text animated fadeInDown">Замыкание – это функция вместе со всеми внешними переменными, которые ей доступны.</p>
-        <a *ngIf="dcOpened" href="https://learn.javascript.ru/closures" class="float-right" mdbRippleRadius>long read</a>
+        <div *ngIf="!dcEditMode">
+            <h4 class="card-title" (click)="collapseDc()">{{item.caption}}</h4>
+            <p *ngIf="dcOpened" class="card-text animated fadeInDown">{{item.text}}</p>
+            <a *ngIf="dcOpened" href="{{cItem.link}}" class="float-right" mdbRippleRadius>long read</a>
+        </div>
+        <div *ngIf="dcEditMode">
+            Code: <textarea [(ngModel)]="cItem.code"></textarea>
+            <br> Caption: <input [(ngModel)]="cItem.caption" />
+            <br> Descr: <input [(ngModel)]="cItem.text" />
+            <br> Link: <input [(ngModel)]="cItem.link" />
+        </div>
+    </div>
+    <div *ngIf="dcEditMode" class="text-center mt-1-half">
+        <button class="btn btn-info mb-1 waves-light" mdbRippleRadius (click)="apply()">Save <i class="fa fa-check ml-1"></i></button>
     </div>
 </div>

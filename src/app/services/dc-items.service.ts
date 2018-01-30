@@ -4,10 +4,13 @@ import { Injectable } from '@angular/core';
 export class DcItemsService {
   dcItems = [];
 
-  constructor() { }
+  constructor() {  }
 
   getDcItemList(){
     this.dcItems = JSON.parse(localStorage.getItem('dcItems'));
+    if(this.dcItems == null){
+      this.dcItems = [];
+    }
     return this.dcItems;
   }
 

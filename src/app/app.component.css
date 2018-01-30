@@ -1,9 +1,10 @@
 main {
-    position: fixed;
+    position: relative;
     background-image: -webkit-linear-gradient(bottom, #09203f 0%, #537895 100%);
     background-image: -moz-linear-gradient(bottom, #09203f 0%, #537895 100%);
     background-image: -o-linear-gradient(bottom, #09203f 0%, #537895 100%);
     background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
     min-height: 100vh;
     width: 100vw;
+    overflow: hidden;
 }

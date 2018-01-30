@@ -1,7 +1,24 @@
 <div class="container">
+
     <div class="row">
-        <div class="col">
-            <app-rem-dc-item></app-rem-dc-item>
+        <div class="col list">
+            <div *ngFor="let item of itemList">
+                <app-rem-dc-item [dc-edit-mode]="false" [item]="item"></app-rem-dc-item>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary waves-light pull-right" (click)="newItem()" mdbRippleRadius><i class="fa fa-plus"></i></button>
+    <!--Modal: Contact form-->
+    <div mdbModal #content="mdb-modal" class="modal fade" id="modalContactForm" tabindex="1050" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" z-index="1050">
+        <div class="modal-dialog cascading-modal" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <app-rem-dc-item [item]="addingItem" [dcEditMode]="true" (save)="closeModal($event)"></app-rem-dc-item>
+            </div>
+            <!--/.Content-->
         </div>
     </div>
 </div>
+
+
+<!--Modal: Contact form-->
