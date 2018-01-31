@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DcItemsService } from '../services/dc-items.service';
+import { DcItem } from '../classes/dc-item';
 
 @Component({
   selector: 'app-rem-dc-list',
@@ -8,22 +9,27 @@ import { DcItemsService } from '../services/dc-items.service';
 })
 export class RemDcListComponent implements OnInit {
   @ViewChild('content') public contentModal;
-  itemList = [];
-  addingItem = {code:``,caption:``,text:``,link:``};
+  itemList : Array<DcItem> = new Array<DcItem>();
+  addingItem : DcItem;
   constructor( public dcItemsService: DcItemsService) { 
-    this.itemList = dcItemsService.getDcItemList();
+    this.getItemList();
   }
 
   ngOnInit() {
   }
 
+  getItemList(){
+    this.itemList = this.dcItemsService.getDcItemList();
+  }
+
   closeModal($event){
     console.log($event);
     this.dcItemsService.addDcItem($event);
+    this.getItemList()
     this.contentModal.hide();
   }
   newItem(){
-    this.addingItem = {code:``,caption:``,text:``,link:``};
+    this.addingItem = new DcItem;
     this.contentModal.show()
   }
 }

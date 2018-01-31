@@ -8,10 +8,17 @@ a {
     color: transparent;
 }
 
+pre {
+    margin: -25px -20px;
+}
+
+code {
+    min-height: 50px;
+}
+
 .card {
     color: hsl(60, 30%, 96%);
     display: block;
-    overflow-x: auto;
-    padding: 0.5em;
-    background: hsl(72, 7%, 13%);
+    overflow: hidden;
+    background: #1c2637;
 }

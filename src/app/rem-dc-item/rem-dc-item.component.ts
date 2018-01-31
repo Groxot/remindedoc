@@ -1,4 +1,5 @@
 import { Component, OnInit ,  EventEmitter, Input, Output } from '@angular/core';
+import { DcItem } from '../classes/dc-item';
 
 @Component({
   selector: 'app-rem-dc-item',
@@ -7,14 +8,13 @@ import { Component, OnInit ,  EventEmitter, Input, Output } from '@angular/core'
 })
 export class RemDcItemComponent implements OnInit {
   dcOpened = false; 
-  cItem = {code:``,caption:``,text:``,link:``};
+  cItem : DcItem;
 
-  @Input()  dcEditMode: any;
-  @Input()  item: any;
-  @Output() save = new EventEmitter<any>();  
+  @Input()  dcEditMode: boolean;
+  @Input()  item: DcItem;
+  @Output() save = new EventEmitter<DcItem>();  
 
   constructor() { 
-
   }
 
   ngOnInit() {

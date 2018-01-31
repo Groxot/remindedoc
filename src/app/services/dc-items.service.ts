@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
+import { DcItem } from '../classes/dc-item';
 
 @Injectable()
 export class DcItemsService {
-  dcItems = [];
+  dcItems : Array<DcItem> = new Array<DcItem>(); 
 
   constructor() {  }
 

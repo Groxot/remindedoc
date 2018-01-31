@@ -1,15 +1,16 @@
 <div class="card">
-    <pre *ngIf="dcOpened && !dcEditMode">
-      <code class="animated fadeInUp" [innerHTML]="cItem.code" highlight></code>
-    </pre>
     <div class="card-body">
         <div *ngIf="!dcEditMode">
+
             <h4 class="card-title" (click)="collapseDc()">{{item.caption}}</h4>
             <p *ngIf="dcOpened" class="card-text animated fadeInDown">{{item.text}}</p>
+            <pre *ngIf="dcOpened">
+                <code class="animated fadeInUp" [innerHTML]="cItem.code" highlight contenteditable="{{dcEditMode}}"></code>
+            </pre>
             <a *ngIf="dcOpened" href="{{cItem.link}}" class="float-right" mdbRippleRadius>long read</a>
         </div>
         <div *ngIf="dcEditMode">
-            Code: <textarea [(ngModel)]="cItem.code"></textarea>
+            <br> Code: <textarea [(ngModel)]="cItem.code"></textarea>
             <br> Caption: <input [(ngModel)]="cItem.caption" />
             <br> Descr: <input [(ngModel)]="cItem.text" />
             <br> Link: <input [(ngModel)]="cItem.link" />
